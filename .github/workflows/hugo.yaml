@@ -35,18 +35,20 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Install Hugo (extended)
-        run: |
-          curl -sfL --output-dir "${{ runner.temp }}" -O \
-            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
-          mkdir -p "${HOME}/.local/hugo"
-          tar -C "${HOME}/.local/hugo" -xf "${{ runner.temp }}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
-          echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
+        # 改用官方 action 可靠安装（curl 下载二进制可能不完整导致 hugo 异常）
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.164.0'
+          extended: true
 
       - name: Build
         run: |
+          hugo version
+          echo "BASE_URL: ${{ steps.pages.outputs.base_url }}"
           hugo build --gc --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            --cacheDir "${{ runner.temp }}/.cache/hugo"
+            --cacheDir "${{ runner.temp }}/.cache/hugo" \
+            --logLevel error
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
