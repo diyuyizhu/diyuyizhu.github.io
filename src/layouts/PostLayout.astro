@@ -1,0 +1,26 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TOC from '../components/TOC.astro';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  headings?: Heading[];
+}
+const { title, description, headings = [] } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="post-layout">
+    <TOC headings={headings} />
+    <article class="post">
+      <slot />
+    </article>
+  </div>
+</BaseLayout>
