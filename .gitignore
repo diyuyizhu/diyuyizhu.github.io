@@ -1,0 +1,16 @@
+# Hugo 构建产物
+/public/
+/resources/
+.hugo_build.lock
+
+# Node / pnpm 依赖与锁文件
+node_modules/
+package-lock.json
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.idea/
+.vscode/

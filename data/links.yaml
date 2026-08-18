@@ -1,0 +1,20 @@
+# =============================================================================
+# 友链数据（友链页 /links/ 读取此文件）
+# 页面壳子在 content/links.md，卡片内容在此维护
+
+title: 友链
+cover: "/hero/sp1.mp4"
+
+# linkGroups：友链分组，可增删组；每组 links 为友链卡片列表
+linkGroups:
+  - name: 推荐网站
+    desc: 交换友链请联系我
+    type: simple
+    links:
+      # 占位友链，可替换为真实申请者的信息
+      - url: https://github.com/diyuyizhu
+        avatar: https://avatars.githubusercontent.com/u/0
+        name: diyuyizhu
+        blog: diyuyizhu's Blog
+        desc: 本站作者
+        color: "#2563eb"

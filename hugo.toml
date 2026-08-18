@@ -1,0 +1,410 @@
+# =============================================================================
+# diyuyizhu.github.io 博客主配置
+# 基于 hugo-theme-aiovtue（https://github.com/AIOVTUE/hugo-theme-aiovtue）
+#
+# 配置索引：
+#   [params]           站点参数总入口
+#   params.post        文章正文字号
+#   params.links       友链页
+#   params.moments     动态页
+#   params.bangumi     追番页（Bilibili）
+#   params.loader      全站加载动画
+#   params.author      作者信息
+#   params.hero        首页 Hero
+#   params.footer      页脚
+#   params.home        首页布局
+#   params.notice      公告栏
+#   params.social      社交图标
+#   params.charts      归档/标签图表
+#   params.sponsor     赞助
+#   params.license     版权声明
+#   params.comment     评论 provider
+#   params.waline      Waline（备用）
+#   params.twikoo      Twikoo
+#   params.envelope    留言页信封
+#   params.navbar      顶栏
+#   params.search      全文搜索
+#   params.menu.main   导航菜单
+#   params.music       音乐播放器
+#   params.live2d      Live2D 看板娘
+#   params.mouse       团团猫动态鼠标指针
+#   params.effects     全站背景特效（樱花/雨/雪等）
+#   params.pjax        无刷新跳转
+# =============================================================================
+
+# 站点正式访问地址（影响 sitemap、RSS、分享链接等绝对 URL）
+# ⚠️ 部署前务必替换为你的真实 GitHub Pages 地址：https://diyuyizhu.github.io/
+baseURL = 'https://<你的用户名>.github.io'
+locale = 'zh-cn'
+defaultContentLanguage = 'zh'
+# languageCode 自 Hugo 0.158 起已弃用，由上方 locale = 'zh-cn' 承担语言设置
+title = 'diyuyizhu'             # 站点名称（浏览器标题、页脚版权等）
+theme = 'aiovtue'               # 主题目录：themes/aiovtue/
+hasCJKLanguage = true           # 启用中文分词（搜索、摘要等）
+enableRobotsTXT = true          # 生成 robots.txt
+timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
+
+# --- RSS 订阅（服务配置）---
+[services]
+  [services.rss]
+    limit = 20                  # RSS 条目上限
+
+# --- 站点地图（sitemap.xml）---
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
+  filename = 'sitemap.xml'
+
+# --- 分页（首页文章列表）---
+[pagination]
+  pagerSize = 10                # 每页文章数
+
+# --- 分类与标签 URL 路径 ---
+[taxonomies]
+  category = 'categories'       # /categories/xxx/
+  tag = 'tags'                  # /tags/xxx/
+
+# --- 输出格式（首页与文章栏目额外生成 RSS）---
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+
+# --- Markdown 渲染 ---
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true             # 允许正文内嵌 HTML
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true           # 保留 LaTeX 分隔符，由 passthrough render hook + KaTeX 构建时渲染
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'], ['$', '$']]
+  [markup.highlight]
+    style = "github"            # 代码高亮主题
+    noClasses = false
+    lineNos = false
+    tabWidth = 4
+  [markup.tableOfContents]
+    startLevel = 2              # 目录从 h2 开始
+    endLevel = 4                # 目录至 h4
+    ordered = false
+
+# --- 资源类型：将 .excalidraw 识别为 JSON page bundle 资源 ---
+[mediaTypes]
+  [mediaTypes."application/json"]
+    suffixes = ["json", "excalidraw"]
+
+# =============================================================================
+# 站点参数（主题通过 .Site.Params 读取）
+# =============================================================================
+[params]
+  subtitle = '网络安全 · 渗透测试 · 学习笔记'
+  description = 'diyuyizhu（地狱一主）的个人博客，记录网络安全学习、渗透测试与项目经验。'
+  primaryColor = '#DF9193'                      # 主题主色（樱粉，契合樱花主题源起）
+  favicon = '/hero/avatar.png'
+  defaultCover = '/hero/hero-1.jpg'             # 文章默认头图（无 cover 时使用）
+  math = false                                  # 默认关闭；单篇 front matter 写 math: true 启用 KaTeX
+  postIndent = true                             # 文章/关于页正文首行缩进 2em
+
+  # --- 文章/关于页正文 ---
+  [params.post]
+    fontSize = "1.1rem"
+
+  # --- 友链页 ---
+  [params.links]
+    layout = 'preview'                          # preview：卡片截图 | simple：长条头像
+    rssEnable = false                           # 友链页 RSS 展示（框架期关闭）
+    footerEnable = false
+
+  # --- 动态页（content/moments/*.md，front matter 仅需 date）---
+  [params.moments]
+    layout = "memos"                            # memos：头像时间线 | cards：居中卡片
+    cardMaxWidth = "720px"
+
+  # --- 追番页（需 Bilibili UID，框架期关闭）---
+  [params.bangumi]
+    enable = false
+    vmid = ''
+    quote = '生命不息，追番不止！'
+
+  # --- 全站加载动画（樱花加载页）---
+  [params.loader]
+    enable = true
+    minShow = 0
+    maxDuration = 6000
+
+  # --- 作者信息（侧栏 / 关于页）---
+  [params.author]
+    name = 'diyuyizhu'
+    avatar = '/hero/avatar.png'
+    statusEmoji = '🛡️'
+    statusMessage = '正在打靶场练手...'
+
+  # --- 首页 Hero 大图 / 视频轮播 ---
+  # 媒体文件放 static/hero/（框架期用主题自带素材，可替换为自己的）
+  [params.hero.grid]
+    size = 20
+    lineOpacity = 0.1
+    lineOpacityDark = 0.1
+
+  [params.hero]
+    title = 'diyuyizhu'
+    motto = [
+      '攻防一瞬，功在平时',
+      '樱花落尽，星河长明',
+      '慢慢来，也比较快',
+    ]
+    randomUrls = true                           # 随机切换背景
+    enableHitokoto = true                       # 一言 API 随机格言
+    typewriter = true                           # 打字机效果
+    typewriterSpeed = 80
+    style = 'dot'                               # 背景样式：dot / grid
+    fixedImg = true
+    playerUrl = '/hero/player.mp4'
+    urls = [
+      '/hero/hero-1.mp4',
+      '/hero/hero-2.mp4',
+      '/hero/sp1.mp4',
+      '/hero/hero-1.jpg',
+      '/hero/hero-2.png',
+      '/hero/hero-3.jpg',
+    ]
+
+  # --- 页脚 ---
+  [params.footer]
+    since = 2026                                 # 版权起始年
+    runtimeSince = '2026-08-18'                  # 站点运行倒计时起点
+    # icp = '...'                                # 有备案后填写
+
+  # --- 首页文章列表布局 ---
+  # list：紧凑列表（电脑端单列时左栏站点信息/公告/标签 + 右栏文章）
+  # cards：默认卡片列表（含公告栏与随机文章轮播）
+  [params.home]
+    layout = 'list'                  # cards / list（timeline 不成熟，别用）
+    desktopListColumns = 'single'    # list 模式单双列
+    desktopListItemStyle = 'cards'   # list+single 时文章列表样式
+    mobileCardsLayout = 'list'       # 移动端样式
+    mobileCardsBatchSize = 10        # 每页文章数
+
+    # list 模式侧栏
+    archiveHeatmapColumns = 13
+    archiveHeatmapRows = 4
+    randomSidebarCount = 7
+
+    # 推荐区
+    featuredCount = 4
+    featuredPoolCount = 12
+    mobileNoticeTicker = true
+    featuredDesktop = true
+    featuredMobile = true
+
+  # --- 首页公告栏 ---
+  [params.notice]
+    title = '公告栏'
+    rotateInterval = 5000
+    [[params.notice.sections]]
+      label = '--- 欢迎 ---'
+      lines = ['欢迎来到地狱一主的博客', '框架建设中，文章陆续上传']
+    [[params.notice.sections]]
+      label = '--- 方向 ---'
+      lines = ['网络安全 · 渗透测试 · CTF', '技术文章与日常感悟双线记录']
+
+  # --- 侧栏 / Hero 社交图标 ---
+  [[params.social]]
+    name = 'RSS'
+    link = '/index.xml'
+    icon = 'ri:rss-line'
+    color = 'orange'
+  [[params.social]]
+    name = 'GitHub'
+    link = 'https://github.com/diyuyizhu'
+    icon = 'ri:github-line'
+    color = '#6e5494'
+  [[params.social]]
+    name = 'E-Mail'
+    link = 'mailto:diyuyizhu@example.com'
+    icon = 'ri:mail-line'
+    color = '#8E71C1'
+
+  # --- 归档 / 标签页 ECharts 图表 ---
+  [params.charts]
+    archivesStartMonth = '2026-08'               # 归档图起始月份
+    tagsChartLength = 10                         # 标签图显示 Top N
+
+  # --- 文章页底部赞助按钮（个人博客，框架期关闭）---
+  [params.sponsor]
+    enable = false
+    title = '请我喝杯咖啡'
+    description = '喜欢就支持一下吧'
+    [[params.sponsor.methods]]
+      name = '支付宝'
+      url = '/img/zfb.png'
+      color = '#00A3EE'
+    [[params.sponsor.methods]]
+      name = '微信支付'
+      url = '/img/weix.png'
+      color = '#2DC100'
+
+  # --- 文章版权声明（CC 协议）---
+  [params.license]
+    enable = true
+    type = 'by-nc-sa'                            # CC 类型：by / by-nc / by-nc-sa / zero
+    language = 'zh'
+
+  # --- 手写签名动画（框架期关闭）---
+  [params.signature]
+    postCopyrightEnable = false
+    footerEnable = false
+
+  # --- 文章页脚导航 ---
+  [params.postFooter]
+    navigationMerge = true
+
+  # --- 评论系统（文章 / 友链 / 留言页共用）---
+  # provider 可选：waline | twikoo
+  # 框架期不配置服务端地址，评论区不实际渲染；单篇可在 front matter 写 comment: false 关闭
+  [params.comment]
+    provider = 'twikoo'
+
+  # --- Waline 评论（备用）---
+  [params.waline]
+    serverURL = ''
+    placeholder = '分享你的想法...'
+
+  # --- Twikoo 评论 ---
+  # envId 留空时评论区不实际加载；后续要开启评论与访问量统计再配置
+  [params.twikoo]
+    envId = ''
+    visitorEnable = false
+
+  # --- 留言页信封动画图片（文件在 static/envelope/）---
+  [params.envelope]
+    before = '/envelope/before.png'
+    after = '/envelope/after.png'
+    cover = '/envelope/cover.png'
+    line = '/envelope/line.png'
+    wrapHeight = 447
+    openHeight = 1050
+    openOffset = -200
+    danmakuOpenBottomTrim = 140
+
+  # --- 顶栏标题 ---
+  [params.navbar]
+    titleParts = ['diyuyizhu']
+    subTitle = '网络安全 · 渗透测试'
+    offset = 0
+
+    [params.navbar.mobileCollapse]
+      enable = true
+      includeHome = false
+      scrollThreshold = 5
+      scrollDelta = 10
+      revealMode = 'scrollUp'
+
+    [params.navbar.desktopCollapse]
+      enable = true
+      includeHome = false
+      scrollThreshold = 5
+      scrollDelta = 5
+      revealMode = 'scrollUp'
+
+    [params.navbar.scrollWithPage]
+      enable = false
+      includeHome = false
+
+  # --- 全文搜索（Fuse.js）---
+  [params.search]
+    enable = true
+    threshold = 0.35
+
+  # --- 顶栏 / 侧栏导航菜单 ---
+  # 菜单：首页 / 文章 / 动态 / 友链 / 关于 / 留言板 / 归档
+  [[params.menu.main]]
+    name = '首页'
+    url = '/'
+    icon = 'ant-design:home-filled'
+    weight = 1
+  [[params.menu.main]]
+    name = '文章'
+    url = '/posts/'
+    icon = 'ant-design:read-filled'
+    weight = 2
+  [[params.menu.main]]
+    name = '动态'
+    url = '/moments/'
+    icon = 'ant-design:compass-filled'
+    weight = 3
+  [[params.menu.main]]
+    name = '留言板'
+    url = '/comment/'
+    icon = 'ant-design:message-filled'
+    weight = 4
+  [[params.menu.main]]
+    name = '归档'
+    url = '/archives/'
+    icon = 'ant-design:container-filled'
+    weight = 5
+  [[params.menu.main]]
+    name = '友链'
+    url = '/links/'
+    icon = 'ant-design:global-outlined'
+    weight = 6
+  [[params.menu.main]]
+    name = '关于'
+    url = '/about/'
+    icon = 'ant-design:idcard-filled'
+    weight = 7
+
+  # --- 音乐播放器（APlayer + Meting.js）---
+  # 框架期用默认歌单展示效果，之后替换为自己的网易云歌单 ID
+  [params.music]
+    enable = true
+    position = 'right'
+
+    apis = [
+      'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r',
+      'https://api.injahow.cn/meting/?server=:server&type=:type&id=:id',
+      'https://meting.qjqq.cn/?server=:server&type=:type&id=:id',
+    ]
+    server = 'netease'
+    type = 'playlist'
+    id = '2580064383'                             # ⚠️ 网易云歌单 ID，替换为自己的
+
+  # --- Live2D 看板娘（左下角）---
+  [params.live2d]
+    enable = true
+    minWidth = 768
+    drag = false
+    tools = ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit']
+
+    widget = 'https://live2d.kafuchino.top/'
+    waifuTips = 'jsdelivr/sequential/waifu-tips.js'
+    waifuCss = 'css/left.css'
+    waifuTipsJson = 'waifu-tips.json'
+
+    cdnPath = 'https://live2d.kafuchino.top/'
+
+  # --- 团团猫动态鼠标指针 ---
+  [params.mouse]
+    enable = true
+    path = '/mouse/tuantuanma/'
+    scale = 0.25
+
+  # --- 全站背景特效（yzhanWeather · MIT，本地静态资源）---
+  # type：sakura | rain | snow | firefly | butterfly | random
+  [params.effects]
+    enable = true
+    type = 'sakura'                               # 樱花（呼应主题名）
+    randomTypes = ['sakura', 'rain', 'snow', 'firefly', 'butterfly']
+    randomize = true
+    mobile = false
+    maxDuration = 10
+    zIndex = 5
+    script = '/vendor/yzhanweather/yzhanweather.min.js'
+
+  # --- 站内无刷新跳转（PJAX）---
+  [params.pjax]
+    enable = true
+    fadeDuration = 200
+    mountDelay = 120
