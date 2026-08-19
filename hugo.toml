@@ -262,10 +262,14 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
     navigationMerge = true
 
   # --- 评论系统（文章 / 友链 / 留言页共用）---
-  # provider 可选：waline | twikoo
-  # 框架期不配置服务端地址，评论区不实际渲染；单篇可在 front matter 写 comment: false 关闭
+  # provider 可选：utterances | waline | twikoo
+  # utterances：基于 GitHub Issue 的评论（需在 GitHub 安装 utterances app）
+  # 单篇可在 front matter 写 comment: false 关闭
   [params.comment]
-    provider = 'twikoo'
+    provider = 'utterances'
+    [params.comment.utterances]
+      repo = 'diyuyizhu/diyuyizhu.github.io'
+      theme = 'github-light'
 
   # --- Waline 评论（备用）---
   [params.waline]
