@@ -100,7 +100,7 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
 # =============================================================================
 [params]
   subtitle = '网络安全 · 渗透测试 · 学习笔记'
-  description = 'diyuyizhu（地狱一主）的个人博客，记录网络安全学习、渗透测试与项目经验。'
+  description = 'diyuyizhu 的个人博客，记录网络安全学习、渗透测试与项目经验。'
   primaryColor = '#DF9193'                      # 主题主色（樱粉，契合樱花主题源起）
   favicon = '/hero/avatar.png'
   defaultCover = '/hero/hero-1.jpg'             # 文章默认头图（无 cover 时使用）
@@ -205,7 +205,7 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
     rotateInterval = 5000
     [[params.notice.sections]]
       label = '--- 欢迎 ---'
-      lines = ['欢迎来到地狱一主的博客', '框架建设中，文章陆续上传']
+      lines = ['欢迎来到 diyuyizhu 的博客', '框架建设中，文章陆续上传']
     [[params.notice.sections]]
       label = '--- 方向 ---'
       lines = ['网络安全 · 渗透测试 · CTF', '技术文章与日常感悟双线记录']

@@ -1,5 +1,5 @@
 ---
-title: "你好，地狱一主"
+title: "你好，diyuyizhu"
 description: "博客开张：基于 Hugo + hugo-theme-aiovtue 搭建，聊聊站点规划。"
 date: 2024-01-06T00:00:00+08:00
 lastmod: 2026-08-01T00:00:00+08:00
