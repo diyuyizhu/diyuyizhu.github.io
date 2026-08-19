@@ -5,6 +5,7 @@ description: 'SQL 注入的原理、分类与常用函数，涵盖联合查询�
 draft: false
 tags: [SQL注入, Web安全, MySQL, 渗透测试, 漏洞原理]
 categories: [技术]
+cover: "/gallery/1584074384083.webp"
 source: '🔒-安全/网络安全/未分类/补充知识(1).md'
 ---
 

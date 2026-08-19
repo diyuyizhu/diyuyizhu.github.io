@@ -5,6 +5,7 @@ description: '面向初学者的 SQL 注入入门指南：如何判断数字型/
 draft: false
 tags: [SQL注入, Web安全, 渗透测试, 联合注入, 盲注, 报错注入]
 categories: [技术]
+cover: "/gallery/1584159884039.webp"
 source: '🔒-安全/网络安全/未分类/微专业/Web/SQL注入/注入.md'
 ---
 

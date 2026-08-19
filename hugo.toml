@@ -163,12 +163,12 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
     fixedImg = true
     playerUrl = '/hero/player.mp4'
     urls = [
-      '/hero/hero-1.mp4',
-      '/hero/hero-2.mp4',
-      '/hero/sp1.mp4',
-      '/hero/hero-1.jpg',
-      '/hero/hero-2.png',
-      '/hero/hero-3.jpg',
+      '/gallery/1582776513774.webp',
+      '/gallery/1584074167225.webp',
+      '/gallery/1584159884039.webp',
+      '/gallery/1584808200405.webp',
+      '/gallery/wallhaven-2ylrr9_3840x2160.webp',
+      '/gallery/微信图片_20240507024822.webp',
     ]
 
   # --- 页脚 ---

@@ -5,6 +5,7 @@ description: '从取证目标、四阶段流程、取证时机到内存/磁盘/�
 draft: false
 tags: [计算机取证, 数字取证, 内存取证, 磁盘取证, Volatility, 应急响应]
 categories: [技术]
+cover: "/gallery/1584074058329.webp"
 source: '🔒-安全/网络安全/南京培训/计算机取证.md'
 ---
 

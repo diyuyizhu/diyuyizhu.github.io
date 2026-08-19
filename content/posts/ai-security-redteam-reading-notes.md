@@ -5,6 +5,7 @@ description: 'AI 驱动渗透、编码助手越狱、免杀规避、C2 检测—
 draft: false
 tags: [AI安全, 红队, 大模型破解, 免杀, C2, 渗透测试]
 categories: [技术]
+cover: "/gallery/1582776513774.webp"
 source: '20 篇微信公众号文章 + 2 个 GitHub 仓库'
 ---
 

@@ -5,6 +5,7 @@ description: '用开卷考试类比讲清 RAG 的本质，梳理 Naive RAG 的�
 draft: false
 tags: [RAG, 大语言模型, 向量检索, 知识库, LLM]
 categories: [技术]
+cover: "/gallery/1584074382537.webp"
 math: true
 source: '🤖-AI/RAG.md'
 ---

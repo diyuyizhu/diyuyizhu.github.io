@@ -5,6 +5,7 @@ description: '一份面向实践的 Claude Code 使用手册：agent loop 心智
 draft: false
 tags: [Claude Code, AI编程, 效率工具, 工作流, RAG]
 categories: [技术]
+cover: "/gallery/1584074008233.webp"
 source: '🤖-AI/驾驭ClaudeCode手册.md'
 ---
 

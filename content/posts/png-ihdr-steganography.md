@@ -5,6 +5,7 @@ description: '从 PNG 文件结构出发，讲解通过篡改 IHDR 的宽高字�
 draft: false
 tags: [CTF, MISC, 隐写术, PNG, IHDR, CRC]
 categories: [技术]
+cover: "/gallery/1584074292416.webp"
 source: '🔒-安全/网络安全/CTF专题/MISC/隐写/尺寸修改.md'
 ---
 

@@ -5,6 +5,7 @@ description: '从 CIA 三元组、B/S 架构、漏洞生命周期（0day/1day/Nd
 draft: false
 tags: [Web安全, OWASP, CIA三元组, HTTP, 漏洞生命周期]
 categories: [技术]
+cover: "/gallery/1584159994463.webp"
 source: '🔒-安全/网络安全/未分类/微专业/Web/CTF-WEB/WEB安全.md'
 ---
 

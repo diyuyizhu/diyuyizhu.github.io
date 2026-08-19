@@ -5,6 +5,7 @@ description: 'Wireshark 与 tshark 常用协议识别、显示过滤器语法与
 draft: false
 tags: [Wireshark, tshark, 流量分析, 协议分析, pcap]
 categories: [技术]
+cover: "/gallery/1584159887587.webp"
 source: '🔒-安全/网络安全/南京培训/流量分析.md'
 ---
 

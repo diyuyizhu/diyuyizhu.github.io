@@ -5,6 +5,7 @@ description: 'WAF 识别、指纹与 19 类绕过技术汇编：从代理与浏�
 draft: false
 tags: [WAF, 绕过技术, 渗透测试, SQL注入, XSS, Web安全]
 categories: [技术]
+cover: "/gallery/1584159895490.webp"
 source: '🔒-安全/网络安全/未分类/waf-bypass.md'
 ---
 

@@ -5,6 +5,7 @@ description: 'CTF 常见古典密码速查：云影密码（01248 幂数加密�
 draft: false
 tags: [CTF, 密码学, 古典密码, 云影密码, 培根密码]
 categories: [技术]
+cover: "/gallery/1584074167225.webp"
 source: '🔒-安全/网络安全/CTF专题/密码学.md'
 ---
 

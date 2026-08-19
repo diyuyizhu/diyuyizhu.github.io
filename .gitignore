@@ -11,6 +11,9 @@ package-lock.json
 .DS_Store
 Thumbs.db
 
+# 原始图库素材（网站使用压缩版 static/gallery）
+/图库/
+
 # 编辑器
 .idea/
 .vscode/

@@ -5,6 +5,7 @@ description: '一个表看懂 Base 系列编码的识别特征：从字符集大
 draft: false
 tags: [Base64, 编码识别, 编码, 加密, 安全分析]
 categories: [技术]
+cover: "/gallery/1583758509297.webp"
 source: '🔒-安全/网络安全/未分类/微专业/Crypto/现代编码/Base编码家族.md'
 ---
 

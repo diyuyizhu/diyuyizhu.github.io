@@ -5,6 +5,7 @@ description: '详解 ZIP 伪加密原理：全局方式位标记的含义、伪�
 draft: false
 tags: [CTF, MISC, ZIP, 伪加密, 文件格式]
 categories: [技术]
+cover: "/gallery/1584160024408.webp"
 source: '🔒-安全/网络安全/CTF专题/MISC/伪加密/伪加密.md'
 ---
 

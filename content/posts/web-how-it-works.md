@@ -5,6 +5,7 @@ description: '从输入网址到页面呈现：一次网页请求背后的 HTTP�
 draft: false
 tags: [Web基础, HTTP, DNS, 前端, 后端, 浏览器渲染]
 categories: [技术]
+cover: "/gallery/1584159901935.webp"
 source: '🔒-安全/网络安全/未分类/微专业/Web/WEB页面科普（工作原理）.md'
 ---
 

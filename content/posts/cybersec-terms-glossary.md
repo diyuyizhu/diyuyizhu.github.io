@@ -5,6 +5,7 @@ description: '一篇网络安全攻防领域的术语与工具入门科普，覆
 draft: false
 tags: [攻防术语, 渗透测试, 漏洞, C2, APT, 信息收集]
 categories: [技术]
+cover: "/gallery/1584074167752.webp"
 source: '🔒-安全/网络安全/未分类/网络安全/暑期训练/网络安全攻防基础.md'
 ---
 
