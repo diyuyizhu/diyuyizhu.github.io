@@ -1,6 +1,6 @@
 ---
 title: 'PNG 文件结构与 IHDR 篡改隐写：CRC 反推图片尺寸'
-date: 2026-08-18
+date: 2024-07-15
 description: '从 PNG 文件结构出发，讲解通过篡改 IHDR 的宽高字段隐藏信息，并利用 CRC 校验值反推图片原始尺寸的原理与 Python 脚本实现。'
 draft: false
 tags: [CTF, MISC, 隐写术, PNG, IHDR, CRC]

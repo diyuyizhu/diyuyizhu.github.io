@@ -173,8 +173,8 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
 
   # --- 页脚 ---
   [params.footer]
-    since = 2026                                 # 版权起始年
-    runtimeSince = '2026-08-18'                  # 站点运行倒计时起点
+    since = 2024                                 # 版权起始年
+    runtimeSince = '2024-01-01'                  # 站点运行倒计时起点
     # icp = '...'                                # 有备案后填写
 
   # --- 首页文章列表布局 ---
@@ -229,7 +229,7 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
 
   # --- 归档 / 标签页 ECharts 图表 ---
   [params.charts]
-    archivesStartMonth = '2026-08'               # 归档图起始月份
+    archivesStartMonth = '2024-01'               # 归档图起始月份
     tagsChartLength = 10                         # 标签图显示 Top N
 
   # --- 文章页底部赞助按钮（个人博客，框架期关闭）---

@@ -1,6 +1,6 @@
 ---
 title: 'RAG 原理入门：从 Naive 到 Modular RAG'
-date: 2026-08-18
+date: 2026-02-10
 description: '用开卷考试类比讲清 RAG 的本质，梳理 Naive RAG 的标准流程、Advanced RAG 的检索优化技巧与 Modular RAG 的模块化设计，并对比 RAG 与微调的适用场景。'
 draft: false
 tags: [RAG, 大语言模型, 向量检索, 知识库, LLM]

@@ -1,6 +1,6 @@
 ---
 title: 'Web 页面工作原理科普'
-date: 2026-08-18
+date: 2024-04-20
 description: '从输入网址到页面呈现：一次网页请求背后的 HTTP、DNS、服务器处理与浏览器渲染流程，以及前端、后端、API 与部署的整体组成。'
 draft: false
 tags: [Web基础, HTTP, DNS, 前端, 后端, 浏览器渲染]

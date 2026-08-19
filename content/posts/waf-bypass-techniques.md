@@ -1,6 +1,6 @@
 ---
 title: 'WAF Bypass Techniques'
-date: 2026-08-18
+date: 2025-11-18
 description: 'WAF 识别、指纹与 19 类绕过技术汇编：从代理与浏览器仿真到 SQLi/XSS 载荷变形、HTTP/SNI/ECH 协议层绕过与域前置，并附指纹/测试/规避工具清单。'
 draft: false
 tags: [WAF, 绕过技术, 渗透测试, SQL注入, XSS, Web安全]

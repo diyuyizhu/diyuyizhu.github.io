@@ -1,6 +1,6 @@
 ---
 title: '驾驭 Claude Code 手册'
-date: 2026-08-18
+date: 2026-05-12
 description: '一份面向实践的 Claude Code 使用手册：agent loop 心智模型、多开会话与 subagent、配置分层架构、连接知识库与 RAG、工作流纪律。'
 draft: false
 tags: [Claude Code, AI编程, 效率工具, 工作流, RAG]

@@ -1,6 +1,6 @@
 ---
 title: '攻防术语科普：POC/EXP、0day、C2、APT 与常用安全工具'
-date: 2026-08-18
+date: 2024-09-02
 description: '一篇网络安全攻防领域的术语与工具入门科普，覆盖 POC/EXP/Payload、0day/1day/Nday、CVE/CNVD、C2、APT、渗透测试与常用信息收集工具。'
 draft: false
 tags: [攻防术语, 渗透测试, 漏洞, C2, APT, 信息收集]

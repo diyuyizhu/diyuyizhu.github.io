@@ -1,6 +1,6 @@
 ---
 title: 'SQL 注入基础'
-date: 2026-08-18
+date: 2025-05-10
 description: 'SQL 注入的原理、分类与常用函数，涵盖联合查询注入、报错注入、布尔盲注、时间盲注、堆叠注入、宽字节注入与 HTTP 头部注入，以及常见 WAF 绕过技巧。'
 draft: false
 tags: [SQL注入, Web安全, MySQL, 渗透测试, 漏洞原理]

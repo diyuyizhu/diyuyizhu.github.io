@@ -1,6 +1,6 @@
 ---
 title: 'Web 安全基础：CIA 三元组、B/S 架构与 OWASP Top 10'
-date: 2026-08-18
+date: 2025-01-20
 description: '从 CIA 三元组、B/S 架构、漏洞生命周期（0day/1day/Nday）到 OWASP Top 10，一篇 Web 安全入门必读的地图式笔记。'
 draft: false
 tags: [Web安全, OWASP, CIA三元组, HTTP, 漏洞生命周期]

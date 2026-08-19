@@ -1,6 +1,6 @@
 ---
 title: 'CTF MISC 入门：ZIP 伪加密的原理、判定与修改'
-date: 2026-08-18
+date: 2024-06-08
 description: '详解 ZIP 伪加密原理：全局方式位标记的含义、伪加密判定方法、WinHex 修改实操，以及 binwalk、ZipCenOp 等工具的实测对比。'
 draft: false
 tags: [CTF, MISC, ZIP, 伪加密, 文件格式]
