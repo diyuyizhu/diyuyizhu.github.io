@@ -137,7 +137,7 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
   # --- 作者信息（侧栏 / 关于页）---
   [params.author]
     name = 'diyuyizhu'
-    avatar = '/hero/avatar.png'
+    avatar = '/favicon.png'
     statusEmoji = '🛡️'
     statusMessage = '正在打靶场练手...'
 
