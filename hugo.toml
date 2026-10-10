@@ -33,8 +33,9 @@
 # =============================================================================
 
 # 站点正式访问地址（影响 sitemap、RSS、分享链接等绝对 URL）
-# ⚠️ 部署前务必替换为你的真实 GitHub Pages 地址：https://diyuyizhu.github.io/
-baseURL = 'https://<你的用户名>.github.io'
+# 线上由 CI 的 actions/configure-pages 输出覆盖（见 .github/workflows/hugo.yaml），
+# 本值供本地 hugo server / pnpm build 使用，必须与线上一致。
+baseURL = 'https://diyuyizhu.github.io/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh'
 # languageCode 自 Hugo 0.158 起已弃用，由上方 locale = 'zh-cn' 承担语言设置
@@ -114,7 +115,7 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
   # --- 友链页 ---
   [params.links]
     layout = 'preview'                          # preview：卡片截图 | simple：长条头像
-    rssEnable = false                           # 友链页 RSS 展示（框架期关闭）
+    rssEnable = true                            # 友链页 RSS 展示（读 data/links_rss.json，由 scripts/fetch-links-rss.mjs 生成）
     footerEnable = false
 
   # --- 动态页（content/moments/*.md，front matter 仅需 date）---
@@ -223,7 +224,7 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
     color = '#6e5494'
   [[params.social]]
     name = 'E-Mail'
-    link = 'mailto:diyuyizhu@example.com'
+    link = 'mailto:diyuyizhu@163.com'
     icon = 'ri:mail-line'
     color = '#8E71C1'
 
@@ -361,7 +362,7 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
     weight = 7
 
   # --- 音乐播放器（APlayer + Meting.js）---
-  # 框架期用默认歌单展示效果，之后替换为自己的网易云歌单 ID
+  # 歌单 ID 取自网易云分享链接：https://music.163.com/playlist?id=<歌单ID>
   [params.music]
     enable = true
     position = 'right'
@@ -373,7 +374,7 @@ timeZone = 'Asia/Shanghai'      # 时区：文章日期按北京时间
     ]
     server = 'netease'
     type = 'playlist'
-    id = '2580064383'                             # ⚠️ 网易云歌单 ID，替换为自己的
+    id = '825084916'                              # 歌单 ID（由上方 apis 的 Meting 接口解析）
 
   # --- Live2D 看板娘（左下角）---
   [params.live2d]

@@ -16,7 +16,11 @@ export function getBangumiConfig(root = join(import.meta.dirname, '../..')) {
       vmid: String(bangumi.vmid || '').trim(),
       quote: String(bangumi.quote || '').trim(),
     }
-  } catch {
+  } catch (err) {
+    console.warn(
+      '[bangumi] 无法读取 hugo 配置（hugo 是否在 PATH 中？），本次按“未启用”处理：',
+      err?.message || err,
+    )
     return { enabled: false, vmid: '', quote: '' }
   }
 }

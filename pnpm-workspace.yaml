@@ -1,0 +1,6 @@
+# pnpm 10+ 起，onlyBuiltDependencies 等设置已从 package.json 的 pnpm 字段
+# 迁移到本文件。见 https://pnpm.io/settings
+#
+# sharp 需要执行原生构建脚本来安装预编译二进制。
+onlyBuiltDependencies:
+  - sharp

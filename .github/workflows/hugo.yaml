@@ -41,6 +41,18 @@ jobs:
           hugo-version: '0.164.0'
           extended: true
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Generate data snapshots
+        # 只依赖 Node 内置模块 + PATH 中的 hugo，无需 pnpm install。
+        # fetch-missing-static 不在此执行：其目标静态资源已全部入库。
+        run: |
+          node scripts/fetch-links-rss.mjs
+          node scripts/fetch-bangumi.mjs
+
       - name: Build
         run: |
           hugo version
@@ -48,7 +60,7 @@ jobs:
           hugo build --gc --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/.cache/hugo" \
-            --logLevel error
+            --logLevel warn
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

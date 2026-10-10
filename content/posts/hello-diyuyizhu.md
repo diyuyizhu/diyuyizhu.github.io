@@ -13,6 +13,6 @@ comment: false
 
 - 引擎：Hugo Extended + [hugo-theme-aiovtue](https://github.com/AIOVTUE/hugo-theme-aiovtue)
 - 部署：GitHub Actions → GitHub Pages（根路径）
-- 内容：技术文章放 `content/posts/`，日常感悟放 `content/thoughts/`
+- 内容：技术文章放 `content/posts/`，日常感悟放 `content/moments/`
 
 正文后续补充。

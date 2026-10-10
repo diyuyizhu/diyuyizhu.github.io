@@ -64,7 +64,24 @@ async function main() {
   await fetchFontAssets(join(ROOT, "static/fonts/lxgw-wenkai-screen/files"));
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
+main().catch(async (err) => {
+  // 本脚本只负责“补齐缺失文件”，目标资源多数已入库；
+  // 网络不可用不应阻断 dev/build，只在确实仍缺关键资源时才失败。
+  console.warn("[fetch-static] 网络获取失败，跳过补齐：", err?.message || err);
+
+  const missing = [];
+  for (const name of ENVELOPE_FILES) {
+    if (!(await exists(join(ROOT, "static/envelope", name)))) missing.push(`envelope/${name}`);
+  }
+
+  const fontDir = join(ROOT, "static/fonts/lxgw-wenkai-screen/files");
+  const fontsOk = (await readdir(fontDir).catch(() => [])).length > 0;
+  if (!fontsOk) missing.push("fonts/lxgw-wenkai-screen/files");
+
+  if (missing.length) {
+    console.error(`[fetch-static] 关键资源仍缺失，无法继续：${missing.join(", ")}`);
+    process.exit(1);
+  }
+
+  console.log("[fetch-static] 现有静态资源齐全，继续构建。");
 });

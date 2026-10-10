@@ -244,6 +244,16 @@ if (!isLinksRssEnabled(ROOT)) {
   process.exit(0)
 }
 
+const sourceCount = parseFirstGroupRssLinks(readFileSync(LINKS_YAML, 'utf8')).length
 const data = await buildLinksRssData()
+
+if (sourceCount > 0 && data.feeds.length === 0) {
+  if (existsSync(OUTPUT)) {
+    console.warn(`[links-rss] ${sourceCount} 个源全部抓取失败，保留现有 data/links_rss.json 不覆盖`)
+    process.exit(0)
+  }
+  console.warn(`[links-rss] ${sourceCount} 个源全部抓取失败，且无可保留的旧数据，写出空数据`)
+}
+
 writeFileSync(OUTPUT, `${JSON.stringify(data, null, 2)}\n`, 'utf8')
 console.log(`[links-rss] wrote ${data.feeds.length} feed(s) -> data/links_rss.json`)

@@ -4,7 +4,7 @@ import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
 const LOCK_FILE = join(ROOT, ".hugo_build.lock");
-const HUGO_VERSION = process.env.HUGO_VERSION || "0.163.3";
+const HUGO_VERSION = process.env.HUGO_VERSION || "0.164.0";
 
 function needsBundledHugo() {
   return (
@@ -53,7 +53,7 @@ function ensureBuildReady() {
 
 function resolveHugoBin() {
   if (!needsBundledHugo()) {
-    return "hugo";
+    return { bin: "hugo", env: process.env };
   }
 
   const binDir = "/tmp/hugo-bin";
@@ -68,7 +68,10 @@ function resolveHugoBin() {
     chmodSync(bin, 0o755);
   }
 
-  return bin;
+  return {
+    bin,
+    env: { ...process.env, PATH: `${binDir}:${process.env.PATH ?? ""}` },
+  };
 }
 
 function runStep(label, command, args, options = {}) {
@@ -91,11 +94,14 @@ function runStep(label, command, args, options = {}) {
 
 ensureBuildReady();
 
-runStep("fetch-static", process.execPath, ["scripts/fetch-missing-static.mjs"]);
-runStep("fetch-links-rss", process.execPath, ["scripts/fetch-links-rss.mjs"]);
-runStep("fetch-bangumi", process.execPath, ["scripts/fetch-bangumi.mjs"]);
+// fetch 脚本用 `hugo config --format json` 探测功能开关，所以必须先解析 hugo，
+// 并把 bundled 分支的 binDir 注入 PATH；否则探测静默失败，写出空的 data/*.json。
+const hugo = resolveHugoBin();
 
-const hugoBin = resolveHugoBin();
+runStep("fetch-static", process.execPath, ["scripts/fetch-missing-static.mjs"], { env: hugo.env });
+runStep("fetch-links-rss", process.execPath, ["scripts/fetch-links-rss.mjs"], { env: hugo.env });
+runStep("fetch-bangumi", process.execPath, ["scripts/fetch-bangumi.mjs"], { env: hugo.env });
+
 const hugoArgs = ["--cleanDestinationDir", "--minify"];
 
 const baseURL = process.env.CF_PAGES_URL
@@ -107,4 +113,4 @@ if (baseURL) {
   hugoArgs.push("--baseURL", baseURL.endsWith("/") ? baseURL : `${baseURL}/`);
 }
 
-runStep("hugo", hugoBin, hugoArgs);
+runStep("hugo", hugo.bin, hugoArgs, { env: hugo.env });

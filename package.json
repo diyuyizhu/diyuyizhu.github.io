@@ -1,6 +1,10 @@
 {
   "name": "aiovtue-hugo-blog",
   "private": true,
+  "engines": {
+    "node": ">=20.11"
+  },
+  "packageManager": "pnpm@11.7.0",
   "scripts": {
     "fetch-static": "node scripts/fetch-missing-static.mjs",
     "dev": "node scripts/fetch-missing-static.mjs && node scripts/fetch-links-rss.mjs && node scripts/fetch-bangumi.mjs && hugo server -D --disableFastRender",
@@ -11,10 +15,5 @@
   "devDependencies": {
     "decode-ico": "^0.4.1",
     "sharp": "^0.34.5"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp"
-    ]
   }
 }

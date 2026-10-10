@@ -1,4 +1,4 @@
-import { writeFileSync } from 'node:fs'
+import { existsSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { getBangumiConfig, writeEmptyBangumi } from './lib/bangumi-config.mjs'
 
@@ -118,6 +118,7 @@ async function fetchStatusList(vmid, followStatus) {
 
 async function buildBangumiData(vmid) {
   const result = { wantWatch: [], watching: [], watched: [] }
+  let failed = 0
 
   for (const { status, key } of STATUS_KEYS) {
     try {
@@ -126,13 +127,17 @@ async function buildBangumiData(vmid) {
     } catch (err) {
       console.warn(`[bangumi] skip status ${status}:`, err.message || err)
       result[key] = []
+      failed += 1
     }
   }
 
   return {
-    updatedAt: new Date().toISOString(),
-    vmid,
-    ...result,
+    failed,
+    data: {
+      updatedAt: new Date().toISOString(),
+      vmid,
+      ...result,
+    },
   }
 }
 
@@ -144,7 +149,16 @@ if (!config.enabled || !config.vmid) {
   process.exit(0)
 }
 
-const data = await buildBangumiData(config.vmid)
+const { failed, data } = await buildBangumiData(config.vmid)
+
+if (failed === STATUS_KEYS.length) {
+  if (existsSync(OUTPUT)) {
+    console.warn(`[bangumi] ${failed} 个状态全部抓取失败，保留现有 data/bangumi.json 不覆盖`)
+    process.exit(0)
+  }
+  console.warn(`[bangumi] ${failed} 个状态全部抓取失败，且无可保留的旧数据，写出空数据`)
+}
+
 writeFileSync(OUTPUT, `${JSON.stringify(data, null, 2)}\n`, 'utf8')
 const total = data.wantWatch.length + data.watching.length + data.watched.length
 console.log(`[bangumi] wrote ${total} item(s) -> data/bangumi.json`)

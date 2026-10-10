@@ -3,6 +3,10 @@
 /resources/
 .hugo_build.lock
 
+# 构建期生成的数据快照（本地由 pnpm dev / pnpm build 生成，CI 由 workflow 现场生成）
+/data/links_rss.json
+/data/bangumi.json
+
 # Node / pnpm 依赖与锁文件
 node_modules/
 package-lock.json
