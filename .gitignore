@@ -10,6 +10,7 @@
 # Node / pnpm 依赖与锁文件
 node_modules/
 package-lock.json
+.pnpm-store/
 
 # 操作系统
 .DS_Store

@@ -9,6 +9,7 @@
     "fetch-static": "node scripts/fetch-missing-static.mjs",
     "dev": "node scripts/fetch-missing-static.mjs && node scripts/fetch-links-rss.mjs && node scripts/fetch-bangumi.mjs && hugo server -D --disableFastRender",
     "compress-mouse": "node scripts/compress-mouse-assets.mjs",
+    "images": "node scripts/optimize-images.mjs",
     "build": "node scripts/build.mjs",
     "build:cf": "node scripts/build.mjs"
   },
